@@ -1,0 +1,47 @@
+[
+    {
+        "email": "jhon@admin.com",
+        "name": "John",
+        "password": "jhon123"
+    },
+    {
+        "email": "pen@admin.com",
+        "name": "Pen",
+        "password": "pen123"
+    },
+    {
+        "email": "lara@admin.com",
+        "name": "Lara",
+        "password": "lara123"
+    },
+    {
+        "email": "lital@admin.com",
+        "name": "Lital",
+        "password": "lital123"
+    },
+    {
+        "email": "sara@admin.com",
+        "name": "Sara",
+        "password": "sara123"
+    },
+    {
+        "email": "reuven@admin.com",
+        "name": "Reuven",
+        "password": "reuven123"
+    },
+    {
+        "email": "shaden@admin.com",
+        "name": "Shaden",
+        "password": "shaden123"
+    },
+    {
+        "email": "rami@admin.com",
+        "name": "Rami",
+        "password": "rami123"
+    },
+    {
+        "email": "yasmin@admin.com",
+        "name": "Yasmin",
+        "password": "yasmin123"
+    }
+]
