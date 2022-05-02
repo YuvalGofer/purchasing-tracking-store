@@ -1,47 +1,34 @@
 import React, { useState } from "react";
 import LoginForm from "./Components/LoginForm";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Products from "./Pages/Products";
+import YourRecipes from "./Pages/YourRecipes";
 import Navbar from "./Components/Navbar";
+import ProtectedRoute from "./ProtectedRoute";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
-  const adminUser = {
-    email: "admin@admin.com",
-    password: "admin123"
-  }
+
   const [user, setUser] = useState(null);
-  const [error, setError] = useState("");
-  const login = details => {
-    console.log(details);
-    if (details.email == adminUser.email && details.password == adminUser.password) {
-      console.log("Logged in")
-      setUser({
-        name: details.name,
-        email: details.email
-      });
-    } else {
-      console.log("Details dont match!");
-      setError("Details dont match!");
-    }
-  }
-  const logout = () => {
-    setUser({ name: "", email: "" });
-  }
   return (
-    <div className="App">
-      <Navbar />
-      {/* <h1>Users list</h1> */}
-      {/* {Users.map(user => (
-        <div key={user.id}>{user.name}</div>
-      ))} */}
-      {/* {(user.email != "") ? (
-        <div className="Welcome">
-          <h2>Welcom, <span>{user.name}</span></h2>
-          <button onClick={Logout}>Logout</button>
-        </div>
-      ) : (
-        <LoginForm Login={Login} error={error} />
-      )} */}
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar user={user} />
+        <Routes>
+          <Route index path='/recieps' element={<ProtectedRoute user={user}>
+            <YourRecipes />
+          </ProtectedRoute>} />
+          <Route path='/login' element={<LoginForm setUser={setUser} />}></Route>
+          <Route path='/about' element={<About />} />
+          <Route path='/products' element={<Products />} />
+          <Route path='/home' element={<Home />} />
+          <Route path="*" element={<div>404 Page Not Found!</div>} />
+          {/* <Route path='/welcome' element={<Welcome />} /> */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

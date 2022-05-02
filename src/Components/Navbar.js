@@ -1,17 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './Styles/Navbar.scss'
+import './Styles/Navbar.css'
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
     return (
         <div className='nav'>
             <div className="logo">
-                Recipe
+                Recipes
             </div>
             <nav className="item">
                 <ul className="ul">
                     <li>
-                        <Link to='/'>Home</Link>
+                        <Link to='/home'>Home</Link>
                     </li>
                     <li>
                         <Link to='about'>About</Link>
@@ -23,8 +23,11 @@ const Navbar = () => {
                         <Link to='recieps'>Your recipes</Link>
                     </li>
                     <li>
-                        <Link to='login'>Login</Link>
+                        {user === null ? <Link to='login'>Login</Link> : <button>Logout</button>}
                     </li>
+                    {/* <li>
+                        <Link to='welcome'>Welcome</Link>
+                    </li> */}
                 </ul>
             </nav>
         </div>

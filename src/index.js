@@ -1,18 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LoginForm from './Components/LoginForm';
 
 
 
-const root = ReactDOM.createRoot((document.getElementById('root')));
-root.render(
-    <Router>
-        <Routes>
-            <Route path='/' element={<App />}></Route>
-            <Route path='/login' element={<LoginForm />}></Route>
-        </Routes>
-    </Router>
+
+
+ReactDOM.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+
 );

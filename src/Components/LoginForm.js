@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import axios from 'axios';
+import axios, { Axios } from 'axios';
 
-function LoginForm({ login, error }) {
+
+function LoginForm({ setUser }) {
     const submitHandler = e => {
         e.preventDefault();
         console.log(e);
@@ -11,19 +12,21 @@ function LoginForm({ login, error }) {
         console.log(userPassword);
         axios
             .get("./Users.json")
-            .then((res) => console.log(res.data))
-            .catch((err) => console.log(err));
-        // login(details);
+            .then(res => {
+                res.data.forEach(user => {
+                    if (user.email === userEmail && user.password === userPassword) {
+                        console.log("Logged in")
+                        setUser(user)
+
+                    }
+                });
+            })
+            .catch(err => { console.log(err) });
     }
     return (
         <form onSubmit={submitHandler}>
             <div className='form-inner'>
                 <h2>Login</h2>
-                {(error != "") ? (<div className='error'>{error}</div>) : ""}
-                {/* <div className='form-group'>
-                    <label htmlFor='name'>Name:</label>
-                    <input type="text" name="name" id="name" onChange={e => setDetails({ ...details, name: e.target.value })} value={details.name} />
-                </div> */}
                 <div className='form-group'>
                     <label htmlFor='email'>Email:</label>
                     <input type="email" name="email" id="email" />

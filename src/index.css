@@ -11,7 +11,7 @@ body {
     display: block;
     align-items: top;
     justify-content: left;
-    background-image: url(./Components/Assets/restaurant.jpg);
+    background-image: url("../public/Assets/restaurant.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -25,11 +25,14 @@ button {
 }
 
 form {
-    display: block;
+    display: inline-block;
     position: relative;
+    
+    
 }
 
 form::after {
+    border-radius: 3px;
     content: '';
     display: block;
     position: absolute;
@@ -43,10 +46,11 @@ form::after {
 
 form .form-inner {
     position: relative;
-    display: block;
-    background-color: #fff;
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
     padding: 8px;
     z-index: 2;
+    border-radius: 3px;
 }
 
 form .form-inner h2 {
@@ -60,6 +64,7 @@ form .form-inner .form-group {
     display: block;
     width: 300px;
     margin-bottom: 15px;
+
 }
 
 .form-inner .form-group label {

@@ -16,18 +16,21 @@
 .item {
     display: flex;
 
-    .ul {
-        display: flex;
-        margin: 25px;
-    }
+}
 
-    li {
-        margin: 0 1rem;
-    }
+.ul {
+    display: flex;
+    margin: 25px;
+}
 
-    a {
-        text-decoration: none;
-        color: white;
-        font-weight: bolder;
-    }
+li {
+    margin: 0 1rem;
+    list-style: none;
+
+}
+
+a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
 }
